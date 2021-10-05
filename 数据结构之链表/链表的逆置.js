@@ -18,6 +18,17 @@ node3.next = node4;
 node4.next = node5;
 node5.next = node6;
 
+function Inversion(root) {
+    if(root.next.next == null) {
+        root.next.next = root;
+        return root.next;
+    } else {
+        let result = Inversion(root.next);
+        root.next.next = root;
+        root.next = null;
+        return result;
+    }
+}
 
 function forEachNode(root) {
     if(root == null) {
@@ -26,5 +37,5 @@ function forEachNode(root) {
     console.log(root.value);
     forEachNode(root.next);
 }
+forEachNode(Inversion(node1));
 
-forEachNode(node1);
