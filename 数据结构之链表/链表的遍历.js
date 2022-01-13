@@ -23,7 +23,7 @@ node4.next = node5;
 function forEachNode(root) {
     let temp = root;
     while(true) {
-        if(temp != null) {
+        if(temp !== null) {
             console.log(temp.value);
         } else {
             break;
