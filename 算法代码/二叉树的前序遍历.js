@@ -1,3 +1,11 @@
+/*
+ * @Description: 
+ * @Author: PhilRandWu
+ * @Github: https://github/PhilRandWu
+ * @Date: 2022-01-14 18:39:50
+ * @LastEditTime: 2022-01-14 18:39:50
+ * @LastEditors: PhilRandWu
+ */
 function Node(value) {
     this.value = value;
     this.left = null;
@@ -19,6 +27,11 @@ B.right = E;
 C.left = F;
 C.right = G;
 
+/**
+ * @description: 
+ * @param {*} root
+ * @return {*}
+ */
 function forEachNode(root) {
     if(root === null) {
         return;
