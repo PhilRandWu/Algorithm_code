@@ -2,8 +2,8 @@
  * @Description: 
  * @Author: PhilRandWu
  * @Github: https://github/PhilRandWu
- * @Date: 2022-01-17 11:32:51
- * @LastEditTime: 2022-01-17 12:12:53
+ * @Date: 2022-01-17 12:03:06
+ * @LastEditTime: 2022-01-17 12:21:08
  * @LastEditors: PhilRandWu
  */
 
@@ -13,7 +13,7 @@ for(let i = 0; i < 10; i ++) {
 }
 
 /**
- * @description: 构建节点
+ * @description: 创建节点
  * @param {*} value
  * @return {*}
  */
@@ -23,36 +23,25 @@ function Node(value) {
     this.right = null;
 }
 
-/**
- * @description: 添加节点
- * @param {*} root 根节点
- * @param {*} num 值
- * @return {*}
- */
 function addNode(root, num) {
-    if(root == null || root === num) {
+    if(root === null || root.value === num) {
         return;
     }
-    if(root.value > num) { // 将 num 添加向 root 的左边
-        if(root.left === null) { // 如果根节点的左节点为 null, 则直接添加
+    if(root.value > num) {
+        if(root.left === null) {
             root.left = new Node(num);
-        } else { // 递归调用判断根节点的左节点
+        } else {
             addNode(root.left, num);
         }
     } else {
-        if(root.right === null) { // 如果根节点的右节点为 null, 则直接添加
+        if(root.right === null) {
             root.right = new Node(num);
-        } else { // 递归调用判断根节点的右节点
+        } else {
             addNode(root.right, num);
         }
     }
 }
 
-/**
- * @description: 将传入的数组构建一颗二叉搜索树
- * @param {*} arr 传入数组
- * @return {*} 返回一个二叉搜索树
- */
 function buildBinarySearchTrees(arr) {
     if(arr === null || arr.length === 0) {
         return;
@@ -64,5 +53,27 @@ function buildBinarySearchTrees(arr) {
     return root;
 }
 
+// 构建二叉树过程注释参考上一部分 专题构建二叉树
+
+/**
+ * @description: 根据 target 查找 是否有对应值
+ * @param {*} root
+ * @param {*} target 目标值
+ * @return {*} Boolean 值
+ */
+function search(root, target) {
+    if(root === null || target === null) {
+        return false;
+    }
+    if(root.value === target) {
+        return true;
+    }
+    if(root.value > target) {
+        return search(root.left, target);
+    } else {    
+        return search(root.right, target);
+    }
+}
+
 const root = buildBinarySearchTrees(arr);
-console.log(root);
+console.log(search(root, 1000));
