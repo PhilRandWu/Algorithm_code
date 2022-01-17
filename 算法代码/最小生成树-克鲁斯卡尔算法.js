@@ -3,7 +3,7 @@
  * @Author: PhilRandWu
  * @Github: https://github/PhilRandWu
  * @Date: 2022-01-16 21:21:33
- * @LastEditTime: 2022-01-16 22:39:50
+ * @LastEditTime: 2022-01-17 11:46:46
  * @LastEditors: PhilRandWu
  */
 
@@ -17,6 +17,11 @@ const distance = [  // 节点之间的权值
     [max, 8, 8, max, 0]
 ];
 
+/**
+ * @description: 产生节点
+ * @param {*} value
+ * @return {*}
+ */
 function Node(value) {
     this.value = value;
     this.neighbor = [];
@@ -64,7 +69,13 @@ function canLink(beginTemp, endTemp, resultList) {
     return true;
 }
 
-
+/**
+ * @description: 进行连接
+ * @param {*} begin 接入节点
+ * @param {*} end 接出节点
+ * @param {*} resultList 一个二维数组代表有多少个部落
+ * @return {*}
+ */
 function link(begin, end, resultList) {
     let beginIn = null; // 接入部落
     let endIn = null; // 接出部落
