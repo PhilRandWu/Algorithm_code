@@ -3,7 +3,7 @@
  * @Author: PhilRandWu
  * @Github: https://github/PhilRandWu
  * @Date: 2022-01-19 12:02:05
- * @LastEditTime: 2022-01-19 12:05:52
+ * @LastEditTime: 2022-01-19 12:26:29
  * @LastEditors: PhilRandWu
  */
 
@@ -27,14 +27,18 @@ B.child.push(E);
 C.child.push(F);
 C.child.push(G);
 
-function deepSearch(root) {
+function deepSearch(root, target) {
     if(root === null) {
-        return;
+        return false;
     }
-    console.log(root.value);
+    if(root.value === target) {
+        return true;
+    }
+    let result = false;
     for(let i = 0; i < root.child.length; i++) {
-        deepSearch(root.child[i]);
+        result |= deepSearch(root.child[i], target);
     }
+    return result ? true : false;
 }
 
-deepSearch(A);
+console.log(deepSearch(A, 'C'));
